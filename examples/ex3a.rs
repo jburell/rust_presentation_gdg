@@ -5,5 +5,5 @@ fn create_value<'a>() -> &'a u32 {
 
 fn main() {
     let a:&u32 = create_value();
-    println!("Value: {}", a);
+    println!("Value: {}", *a);
 }

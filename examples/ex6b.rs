@@ -13,7 +13,7 @@ impl From<Farenheit> for Celsius {
 
 impl Add for Celsius {
     type Output = Celsius;
-    fn add(self, rhs:Celsius) -> Self {
+    fn add(self, rhs:Celsius) -> Self::Output {
         Celsius(self.0 + rhs.0)
     }
 }
