@@ -1,9 +1,16 @@
-fn create_value<'a>() -> &'a u32 {
+/*fn create_value_ref() -> &u32 {
     let a:u32 = 2;
     return &a;
+}*/
+
+fn create_value_move() -> u32 {
+    let a:u32 = 3;
+    return a;
 }
 
 fn main() {
-    let a:&u32 = create_value();
-    println!("Value: {}", *a);
+    // let a:&u32 = *create_value_ref();
+    // println!("Value: {}", *a);
+    let b:u32 = create_value_move();
+    println!("Value: {}", b);
 }
