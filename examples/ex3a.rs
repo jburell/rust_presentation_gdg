@@ -1,7 +1,7 @@
-/*fn create_value_ref() -> &u32 {
+fn create_value_ref<'a>() -> &'a u32 {
     let a:u32 = 2;
-    return &a;
-}*/
+    return &a; // Not allowed!
+}
 
 fn create_value_move() -> u32 {
     let a:u32 = 3;
@@ -9,8 +9,9 @@ fn create_value_move() -> u32 {
 }
 
 fn main() {
-    // let a:&u32 = *create_value_ref();
-    // println!("Value: {}", *a);
+    let a:&u32 = create_value_ref();
+    println!("Value: {}", *a);
+
     let b:u32 = create_value_move();
     println!("Value: {}", b);
 }
