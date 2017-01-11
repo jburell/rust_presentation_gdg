@@ -6,8 +6,6 @@ fn print_type_of<T>(_: &T) {
 }
 
 fn main() {
-    let a:i8 = -1;
-    let b = 3u8;
-    let c = a + b;
-    print_type_of(&c);
+    let a = 1;
+    print_type_of(&a);
 }   

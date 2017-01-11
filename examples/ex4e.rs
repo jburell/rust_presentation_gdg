@@ -1,13 +1,14 @@
-#![feature(core_intrinsics)]
-fn print_type_of<T>(_: &T) {
-    println!("Type is: {}", unsafe { 
-        std::intrinsics::type_name::<T>()
-    }); 
+use std::fs::File;
+
+fn get_file(filename: &str) -> Result<File, std::io::Error> {
+    //let f = try!(File::open(filename));
+    let f = File::open(filename)?;
+    Ok(f)
 }
 
 fn main() {
-    let a:i8 = -1;
-    let b = 3u8;
-    let c = a + b as i8;
-    print_type_of(&c);
-}   
+    match get_file("examples/ex1a.rs") {
+        Ok(f) => println!("{:?}", f),
+        Err(e) => println!("OOPS! {}", e),
+    }
+}

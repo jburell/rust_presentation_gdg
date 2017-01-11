@@ -1,11 +1,14 @@
-#![feature(core_intrinsics)]
-fn print_type_of<T>(_: &T) {
-    println!("Type is: {}", unsafe { 
-        std::intrinsics::type_name::<T>()
-    }); 
+struct Point {
+    x:f32,
+    y:f32,
 }
 
+struct NotAPoint {}
+
+#[derive(Debug)]
+enum ReturnVal { Point, NotAPoint }
+
 fn main() {
-    let a = 1;
-    print_type_of(&a);
-}   
+    let p:ReturnVal = ReturnVal::NotAPoint;
+    println!("Value: {:?}", p);
+}

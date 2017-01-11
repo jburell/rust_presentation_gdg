@@ -1,10 +1,11 @@
-#[derive(Debug)]
-struct Point {
+struct Coord {
     x:f32,
     y:f32,
+    z:f32,
 }
 
 fn main() {
-    let p = Point {x: 3.0, y: 5.2};
-    println!("Value: {:?}", p);
+    let c = Coord{ x: 5.0, y: 4.0, z: 3.0 };
+    let Coord { x, z, .. } = c;
+    println!("My x: {}, z: {}", x, z);
 }

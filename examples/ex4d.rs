@@ -1,13 +1,8 @@
-#![feature(core_intrinsics)]
-fn print_type_of<T>(_: &T) {
-    println!("Type is: {}", unsafe { 
-        std::intrinsics::type_name::<T>()
-    }); 
-}
+use std::env;
 
 fn main() {
-    let a:i8 = -1;
-    let b = 3u8;
-    let c = a + b;
-    print_type_of(&c);
-}   
+    let mut args = env::args();
+    let exe = args.next(); // Name of app
+    let arg1 = args.next(); // Can it be NULL?!??
+    println!("{:?}\n{:?}", exe, arg1);
+}

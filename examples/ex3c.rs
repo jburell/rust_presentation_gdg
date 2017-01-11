@@ -1,10 +1,13 @@
-#![feature(box_syntax, box_patterns)]
-fn create_value() -> Box<u32> {
-    let a:Box<u32> = box 2;
-    return a;
+#![feature(core_intrinsics)]
+fn print_type_of<T>(_: &T) {
+    println!("Type is: {}", unsafe { 
+        std::intrinsics::type_name::<T>()
+    }); 
 }
 
 fn main() {
-    let a:u32 = *create_value();
-    println!("Value: {}", a);
-}
+    let a = 1;
+    let b = 3u8;
+    let c = a + b;
+    print_type_of(&c);
+}   

@@ -1,13 +1,15 @@
-#![feature(core_intrinsics)]
-fn print_type_of<T>(_: &T) {
-    println!("Type is: {}", unsafe { 
-        std::intrinsics::type_name::<T>()
-    }); 
+#[derive(Debug, Clone)]
+enum ReturnVal { Point{ x:f32, y:f32 }, NotAPoint }
+
+fn get_val(input:f32) -> ReturnVal {
+    if input > 1.0 { 
+        ReturnVal::Point{ x: input, y: input} 
+    } else { 
+        ReturnVal::NotAPoint 
+    }
 }
 
 fn main() {
-    let a = 1;
-    let b = 3u8;
-    let c = a + b;
-    print_type_of(&c);
-}   
+    let p:ReturnVal = get_val(1.5);
+    println!("Value: {:?}", p);
+}

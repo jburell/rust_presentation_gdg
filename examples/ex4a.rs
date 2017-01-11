@@ -1,6 +1,10 @@
+#[derive(Debug)]
+struct Point {
+    x:f32,
+    y:f32,
+}
+
 fn main() {
-    let a;
-    let b = 2;
-    a = 3;
-    println!("Result: {} + {} + 4 = {}", a, b, a + b + 4);
+    let p = Point {x: 3.0, y: 5.2};
+    println!("Value: {:?}", p);
 }
